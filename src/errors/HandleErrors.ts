@@ -3,7 +3,7 @@ import { AppError } from "./AppError";
 import { ZodError } from "zod";
 
 export class HandleErrors {
-  handleError(err: Error, req: Request, res: Response, next: NextFunction) {
+  public static execute(err: Error, req: Request, res: Response, next: NextFunction) {
     if (err instanceof AppError) {
       return res.status(err.statusCode).json({ error: err.message });
     }

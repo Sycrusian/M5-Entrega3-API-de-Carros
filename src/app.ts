@@ -5,6 +5,7 @@ import express, { json } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import { carRouter } from "./routes/car.route";
+import { HandleErrors } from "./errors/HandleErrors";
 
 export const app = express();
 
@@ -14,3 +15,4 @@ app.use(json());
 
 app.use("/cars", carRouter);
 
+app.use(HandleErrors.execute);

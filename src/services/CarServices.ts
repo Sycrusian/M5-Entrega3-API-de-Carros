@@ -15,8 +15,7 @@ export class CarServices {
     return carSchema.array().parse(cars);
   }
 
-  public async read(id: string): Promise<Car> {
-    const car = await prisma.car.findFirst({ where: { id }});
+  public async read(car: Car): Promise<Car> {
     return carSchema.parse(car);
   }
 
