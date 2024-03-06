@@ -3,7 +3,13 @@
   "description": "Kenzie Academy - Módulo 5 - Entrega 3 - Desenvolvendo e Testando uma API de Catálogo de Carros",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "20"
+  },
   "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/server.js",
+    "migrate:deploy": "npx prisma migrate deploy",
     "test": "dotenv -e .env.test -- jest --verbose --runInBand",
     "migrate:test": "dotenv -e .env.test -- npx prisma migrate dev",
     "dev": "dotenv -e .env.dev -- tsnd --respawn src/server.ts",
