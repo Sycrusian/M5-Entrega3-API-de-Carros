@@ -19,7 +19,7 @@ export class CarServices {
     return carSchema.parse(car);
   }
 
-  public async update(id: string, data: any): Promise<Car> {
+  public async update(id: string, data: UpdateCar): Promise<Car> {
     const car = await prisma.car.update({ data, where: { id } });
     return carSchema.parse(car);
   }
