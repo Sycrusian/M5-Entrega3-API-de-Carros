@@ -13,6 +13,10 @@ export class CarController {
   }
 
   public async readAll(req: Request, res: Response): Promise<Response> {
+    if (req.query.userId) {
+      const response = await this.services.readFromUser(req.query.userId as string);
+      return res.status(200).json(response);
+    }
     const response = await this.services.readAll();
     return res.status(200).json(response);
   }

@@ -21,5 +21,19 @@ model Car {
   year Int
   km Int
 
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@map("cars")
+}
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  password String
+
+  cars Car[]
+
+  @@map("users")
 }
