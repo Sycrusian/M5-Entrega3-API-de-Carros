@@ -21,7 +21,7 @@ export class CarController {
     return res.status(200).json(response);
   }
 
-  public async read(req: Request, res: Response): Promise<Response> {
+  public async read(_req: Request, res: Response): Promise<Response> {
     const response = await this.services.read(res.locals.car);
     return res.status(200).json(response);
   }
@@ -32,7 +32,7 @@ export class CarController {
     return res.status(200).json(response);
   }
 
-  public async delete(req: Request, res: Response): Promise<Response> {
+  public async delete(_req: Request, res: Response): Promise<Response> {
     const id = res.locals.car.id;
     await this.services.delete(id);
     return res.status(204).send();

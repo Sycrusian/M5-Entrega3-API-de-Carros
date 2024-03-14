@@ -1,4 +1,3 @@
-import jwt from "jsonwebtoken";
 import { NextFunction, Request, Response } from "express";
 import { injectable } from "tsyringe";
 import { prisma } from "../database/prisma";
@@ -21,7 +20,7 @@ export class CarMiddlewares {
     return next();
   }
 
-  public async verifyUserOwnsCar(req: Request, res: Response, next: NextFunction) {
+  public async verifyUserOwnsCar(_req: Request, res: Response, next: NextFunction) {
     const providedUserId = res.locals.token.id;
     const carUserId = res.locals.car.user.id;
     if (providedUserId != carUserId) {

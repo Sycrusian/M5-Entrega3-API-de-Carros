@@ -4,7 +4,7 @@ import { AppError } from "../errors/AppError";
 
 export class ValidateRequest {
   public static execute(schemas: IRequestSchemas) {
-    return async (req: Request, _: Response, next: NextFunction) => {
+    return async (req: Request, _res: Response, next: NextFunction) => {
       if (schemas.params) {
         req.params = await schemas.params.parseAsync(req.params);
       }

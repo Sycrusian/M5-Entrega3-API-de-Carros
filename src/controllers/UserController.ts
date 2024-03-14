@@ -26,7 +26,7 @@ export class UserController {
     return res.status(200).json(response);
   }
 
-  public async getUser(req: Request, res: Response): Promise<Response> {
+  public async getUser(_req: Request, res: Response): Promise<Response> {
     const token = res.locals.token;
     const id = token.id;
     const response = await this.services.read(id);
